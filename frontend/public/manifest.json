@@ -1,0 +1,18 @@
+{
+  "short_name": "SkyIntel AI",
+  "name": "SkyIntel AI — Weather Intelligence Platform",
+  "description": "AI-Powered Weather Intelligence Platform. Crafted by Devidas Kulkarni & Sudhanwa Kulkarni.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0f172a",
+  "theme_color": "#0284c7",
+  "display": "standalone",
+  "orientation": "portrait"
+}

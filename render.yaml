@@ -1,0 +1,39 @@
+services:
+  # ─────────────────────────────────────────────
+  # SkyIntel AI — FastAPI Backend on Render.com
+  # ─────────────────────────────────────────────
+  - type: web
+    name: skyintel-ai-backend
+    runtime: python
+    region: oregon
+
+    # Build command — installs all Python dependencies
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+
+    # Start command — runs alembic migrations then starts uvicorn
+    startCommand: "cd backend && python -m alembic -c alembic.ini upgrade head && uvicorn main:app --host 0.0.0.0 --port $PORT"
+
+    # Free tier
+    plan: free
+
+    # Health check path
+    healthCheckPath: /api/health
+
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        value: sqlite:///./rain_predictor.db
+      # ⚠️  Set these in Render dashboard under Environment Variables:
+      # - key: SECRET_KEY          (generate a 32+ char random string)
+      # - key: OPENWEATHER_API_KEY (your OpenWeatherMap API key)
+      # - key: FRONTEND_ORIGIN     (https://deva72199665-byte.github.io)
+      # - key: ALLOWED_HOSTS       (skyintel-ai-backend.onrender.com,*)
+      - key: FRONTEND_ORIGIN
+        value: https://deva72199665-byte.github.io
+      - key: ALLOWED_HOSTS
+        value: "skyintel-ai-backend.onrender.com,localhost,127.0.0.1,*"

@@ -1,0 +1,16 @@
+.git
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.db
+*.sqlite
+.env
+backend/artifacts/*.joblib
+frontend/node_modules
+frontend/dist
+frontend/.vite
+.pytest_cache
+.ruff_cache
+coverage
+*.log

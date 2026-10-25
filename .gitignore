@@ -1,0 +1,44 @@
+# Secrets
+.env
+_local_config/
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+pyc/
+
+# Database files (runtime, not needed in git)
+*.db
+*.sqbpro
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build output
+dist/
+build/
+
+# Misc
+*.bak
+catboost_info/
+backend_test.log
+frontend_test.log
+.node/
+
+# Large binary assets (too big for GitHub)
+*.mp4
+*.mp3
+*.pptx
+assets/video_slides/
+assets/extracted/
+assets/skyintel_intro.mp4
+
+# Helper/scratch scripts
+push_to_github.py
+generate_intro_video.py
+show_db.py
+predict.py
+train_model.py

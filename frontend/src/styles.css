@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-slate-200/50;
+  }
+  body {
+    @apply min-h-screen bg-slate-50 text-slate-800 selection:bg-sky-500/10 selection:text-sky-700 antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+    background-image: radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.5) 0, transparent 50%),
+                      radial-gradient(at 50% 0%, rgba(224, 231, 255, 0.5) 0, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(186, 230, 253, 0.4) 0, transparent 50%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+  button, input, select, textarea {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  /* Futuristic Light Glassmorphism */
+  .glass {
+    @apply rounded-3xl border border-slate-200 bg-white/80 shadow-xl shadow-slate-100/50 backdrop-blur-xl transition-all duration-300;
+  }
+  .glass-card {
+    @apply rounded-2xl border border-slate-200/50 bg-white/60 p-5 backdrop-blur-md shadow-sm transition-all duration-300 hover:border-sky-500/30 hover:bg-white/90 hover:shadow-lg hover:shadow-sky-500/5 hover:-translate-y-0.5;
+  }
+  .page-space {
+    @apply mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-[10px] font-extrabold uppercase tracking-widest text-sky-700 bg-sky-500/10 px-2.5 py-1 rounded-full w-fit;
+  }
+  .page-title {
+    @apply font-heading text-4xl sm:text-5xl font-black tracking-tight text-slate-900;
+  }
+  .page-subtitle {
+    @apply mt-2.5 text-sm text-slate-500 sm:text-base font-medium;
+  }
+  .card-title {
+    @apply font-heading text-base font-bold text-slate-800 tracking-wide;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-sky-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent;
+  }
+
+  /* Futuristic Inputs */
+  .form-label {
+    @apply block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5;
+  }
+  .form-input {
+    @apply w-full rounded-2xl border border-slate-200 bg-white/60 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-300 focus:border-sky-500/50 focus:bg-white focus:ring-4 focus:ring-sky-500/5;
+  }
+
+  /* Futuristic Buttons with sliding shine */
+  .primary-button {
+    @apply relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-sky-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/10 transition-all duration-300 hover:shadow-sky-600/20 active:scale-[0.98] disabled:opacity-50 hover:brightness-110;
+  }
+  .secondary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 hover:bg-slate-100 hover:text-slate-900 active:scale-[0.98];
+  }
+  .badge-dev {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-bold text-sky-700 shadow-sm;
+  }
+
+  /* Data Tables - Clean styling */
+  .data-table {
+    @apply min-w-full text-left text-sm border-collapse;
+  }
+  .data-table th {
+    @apply border-b border-slate-200 bg-slate-50/50 px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500;
+  }
+  .data-table td {
+    @apply border-b border-slate-100 px-6 py-4 text-slate-600;
+  }
+  .data-table tr:hover td {
+    @apply bg-slate-50/80 text-slate-900;
+  }
+
+  /* Stat Displays */
+  .mini-stat {
+    @apply flex flex-col gap-1.5 rounded-2xl border border-slate-200/40 bg-white/40 p-5 backdrop-blur-md shadow-inner transition hover:border-slate-200;
+  }
+  .mini-stat span {
+    @apply text-[10px] font-bold uppercase tracking-wider text-slate-500;
+  }
+  .mini-stat b {
+    @apply font-heading text-3xl font-extrabold text-slate-900;
+  }
+
+  /* Interactive Elements */
+  .developer-card {
+    @apply rounded-3xl border border-slate-200/40 bg-white/40 p-6 backdrop-blur-lg shadow-md transition-all duration-300 hover:border-sky-500/20 hover:bg-white/80 hover:-translate-y-1;
+  }
+  .developer-avatar {
+    @apply grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-sky-600 via-indigo-600 to-purple-600 text-lg font-black text-white shadow-lg;
+  }
+}
+
+/* Micro-interactions & animations */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.08);
+}
+.glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.08);
+}
+
+/* Radar Sweep Animation */
+.radar-sweep-container {
+  position: relative;
+  overflow: hidden;
+}
+.radar-sweep-container::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 50%, rgba(14, 165, 233, 0.04) 80%, rgba(14, 165, 233, 0.12) 100%);
+  animation: radar-spin 4s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Dynamic Weather Backgrounds */
+.theme-stormy {
+  background-image: radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.08) 0, transparent 60%),
+                    radial-gradient(at 100% 100%, rgba(203, 213, 225, 0.5) 0, transparent 60%) !important;
+}
+.theme-sunny {
+  background-image: radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.08) 0, transparent 60%),
+                    radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.03) 0, transparent 50%) !important;
+}
+.theme-cloudy {
+  background-image: radial-gradient(at 0% 0%, rgba(148, 163, 184, 0.08) 0, transparent 60%) !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.3);
+}
